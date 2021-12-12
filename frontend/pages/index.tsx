@@ -8,7 +8,6 @@ import {
   useLotteryContract,
 } from "@/core/hooks/useContract";
 import useWeb3Provider from "@/core/hooks/useWeb3Provider";
-import useApproveConfirmTransaction from "@/core/hooks/useApproveTransaction";
 
 const ContractPage = () => {
   const lotteryContract = useLotteryContract();
