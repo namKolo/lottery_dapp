@@ -3,18 +3,32 @@ import type { NextPage } from "next";
 import { useWeb3React } from "@web3-react/core";
 
 import useAuth from "@/core/hooks/useAuth";
-import { useLotteryContract } from "@/core/hooks/useContract";
+import {
+  useGreeterContract,
+  useLotteryContract,
+} from "@/core/hooks/useContract";
 import useWeb3Provider from "@/core/hooks/useWeb3Provider";
+import useApproveConfirmTransaction from "@/core/hooks/useApproveTransaction";
 
 const ContractPage = () => {
   const lotteryContract = useLotteryContract();
+  const greeterContract = useGreeterContract();
   const provider = useWeb3Provider();
+
   useEffect(() => {
-    async function log() {}
+    async function log() {
+      console.log(await greeterContract.greet());
+    }
     log();
   }, []);
 
-  return <div>This is lottery</div>;
+  return (
+    <div>
+      <div onClick={() => greeterContract.setGreeting("Oh yeah")}>
+        Set Greeting
+      </div>
+    </div>
+  );
 };
 
 const Home: NextPage = () => {

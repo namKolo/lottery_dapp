@@ -10,3 +10,11 @@ export const useLotteryContract = () => {
     [provider]
   );
 };
+
+export const useGreeterContract = () => {
+  const provider = useWeb3Provider();
+  return useMemo(
+    () => ContractService.getGreeterContract(provider?.getSigner()),
+    [provider]
+  );
+};

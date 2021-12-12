@@ -4,7 +4,7 @@ import ConfigService from "./Configuration/ConfigurationService";
 import { IConfigurationService } from "./Configuration/IConfigurationService";
 
 import EnvironmentService, { IEnvironmentService } from "./EnvironmentService";
-import { Lottery } from "@contract-types";
+import { Lottery, Greeter } from "@contract-types";
 
 type ESigner = ethers.Signer | ethers.providers.Provider;
 
@@ -32,6 +32,14 @@ class ContractService implements IContractService {
     return this._getContract<Lottery>(
       this.configService.getLotteryABI(),
       this.configService.getLotteryAddress(),
+      signer
+    );
+  }
+
+  getGreeterContract(signer?: ESigner): Greeter {
+    return this._getContract<Greeter>(
+      this.configService.getGreeterABI(),
+      this.configService.getGreeterAddress(),
       signer
     );
   }

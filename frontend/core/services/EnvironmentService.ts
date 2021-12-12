@@ -13,7 +13,7 @@ class EnvironmentService implements IEnvironmentService {
   }
 
   getRpcUrl() {
-    return process.env.REACT_APP_NODE || "http://localhost:8545";
+    return process.env.REACT_APP_NODE;
   }
 
   getSimpleRpcProvider() {
