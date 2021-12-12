@@ -4,6 +4,11 @@
 
 - The env var is centralized in EnvironmentService
 
+### How to connect to Metamask
+- Update the EnvironmentService to add the supported chain ids.
+- Use the hook `useAth` which returns `login` and `logout`
+- Use 2 above functions to trigger some cool stuffs.
+
 ### How to add a new contract configuration
 
 - Add the abi.json of the contract to `core/services/abi`;
